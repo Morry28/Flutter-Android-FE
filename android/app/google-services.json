@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680132870469",
+    "project_id": "flu-ai",
+    "storage_bucket": "flu-ai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680132870469:android:7eead8b3dd0589b55f7e2c",
+        "android_client_info": {
+          "package_name": "com.example.helloworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYy6h5XAYGaJD3zqlfBAwTuhKy9cbAANc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

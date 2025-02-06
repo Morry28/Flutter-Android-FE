@@ -1,0 +1,51 @@
+lib/
+│── core/                    # 🔹 Globálne definície pre celý projekt
+│   ├── constants.dart        # Definície konštánt (napr. API endpointy)
+│   ├── errors/               # Vlastné chyby a výnimky
+│   ├── network/              # API requesty a služby
+│   │   ├── api_service.dart  # API komunikácia (GET/POST)
+│   │   ├── http_client.dart  # Nastavenie HTTP klienta
+│   ├── utils/                # Utility funkcie (napr. parsovanie JSON, validácie)
+│   │   ├── date_utils.dart   # Príklady utility tried
+│   │   ├── string_utils.dart
+│
+│── models/                   # 🔹 Modely dát (napr. User, AIModel, ChatMessage)
+│   ├── user.model.dart
+│   ├── ai_function.model.dart
+│   ├── chat_message.model.dart
+│
+│── providers/                # 🔹 State Management (Riverpod, Provider, Bloc)
+│   ├── chat_provider.dart
+│   ├── auth_provider.dart
+│
+│── screens/                  # 🔹 Každý screen ako samostatný priečinok
+│   ├── chat/                 # Feature: Chat
+│   │   ├── chat_screen.dart  # Hlavný chat screen
+│   │   ├── chat_input.dart   # Input field v chate
+│   │   ├── chat_list.dart    # Zoznam správ
+│   │   ├── chat_controller.dart # Business logika pre chat
+│   ├── home/
+│   │   ├── home_screen.dart
+│   │   ├── home_controller.dart
+│   ├── auth/
+│   │   ├── login_screen.dart
+│   │   ├── register_screen.dart
+│   │   ├── auth_controller.dart
+│
+│── widgets/                   # 🔹 Znovupoužiteľné widgety
+│   ├── buttons/               # Komponenty pre tlačidlá
+│   │   ├── primary_button.dart
+│   │   ├── icon_button.dart
+│   ├── inputs/                # Vstupné polia
+│   │   ├── text_input.dart
+│   │   ├── password_input.dart
+│   ├── layouts/               # Layouty pre screens
+│   │   ├── main_layout.dart
+│   │   ├── chat_layout.dart
+│
+│── styles/                    # 🔹 Styling & Theme
+│   ├── color_palette.dart
+│   ├── text_styles.dart
+│   ├── theme.dart
+│
+│── main.dart  
