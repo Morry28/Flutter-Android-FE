@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String baseUrl;
-
-  ApiService({required this.baseUrl});
+  final String baseUrl = 'http://192.168.100.16:3000';
 
   Future<Map<String, dynamic>> postData(
       String endpoint, Map<String, dynamic> payload) async {
@@ -16,7 +14,8 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      final Map<String, dynamic> res = jsonDecode(response.body);
+      return res;
     } else {
       throw Exception('Failed to post data: ${response.body}');
     }

@@ -10,8 +10,9 @@ class WriteSend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Row(
+        spacing: 8,
         children: [
           Expanded(
             child: TextField(
@@ -25,8 +26,8 @@ class WriteSend extends StatelessWidget {
           const SizedBox(width: 8),
           FloatingActionButton(
             onPressed: onSend,
-            child: Icon(Icons.send, color: ColorPalette().secondaryColor),
             backgroundColor: ColorPalette().primaryColor,
+            child: Icon(Icons.send, color: ColorPalette().secondaryColor),
           ),
         ],
       ),

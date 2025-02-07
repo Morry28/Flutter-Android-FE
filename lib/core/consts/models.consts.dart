@@ -5,13 +5,13 @@ final models = [
     "apiPath": "/api/turingmodels/array"
   },
   {
-    "name": "Advanced analysys",
-    "utfIcon": "⚗",
+    "name": "FinTech analysys",
+    "utfIcon": "💷",
     "apiPath": "/api/turingmodels/csv"
   },
   {
-    "name": "Detect Toxicity",
-    "utfIcon": "☣",
+    "name": "No code Queries",
+    "utfIcon": "🐘",
     "apiPath": "/api/turingmodels/tbd"
   }
 ];

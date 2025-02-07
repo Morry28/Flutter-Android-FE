@@ -73,7 +73,7 @@ class _MainScreenState extends State<MainScreen> {
 
         ParagraphText(
             text:
-                'every query will cost ~0.006\$ \n original processing cost of sample data is 2\$\n'),
+                'every request will cost ~0.006\$ \n original processing cost of sample data is 2\$\n'),
 //zaznamename vyber funkcie a prejdeme na chat
         FunctionRoller(
           text: 'Select desired model ( only simple data available )',
