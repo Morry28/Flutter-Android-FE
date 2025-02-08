@@ -9,7 +9,7 @@ class ParagraphText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Text(
         text,
         style: TextStyle(fontSize: 16, color: ColorPalette().primaryColor),

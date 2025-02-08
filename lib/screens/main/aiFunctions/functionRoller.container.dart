@@ -30,7 +30,7 @@ class FunctionRoller extends StatelessWidget {
       children: [
         // 🔹 Nadpis nad funkciami
         Padding(
-          padding: EdgeInsets.only(top: 16, left: 16),
+          padding: EdgeInsets.only(left: 16),
           child: Text(
             text,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -42,14 +42,13 @@ class FunctionRoller extends StatelessWidget {
           height: 150,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-              spacing: 16,
-              children: aiFunctions
-                  .map((aiFunction) => AIFunctionCard(
-                      aiFunction: aiFunction,
-                      tapSignal: (aiFunction) => upDriller(aiFunction)))
-                  .toList(),
-            ),
+            child: Row(spacing: 24, children: [
+              SizedBox(width: 8),
+              ...aiFunctions.map((aiFunction) => AIFunctionCard(
+                  aiFunction: aiFunction,
+                  tapSignal: (aiFunction) => upDriller(aiFunction))),
+              SizedBox(width: 8),
+            ]),
           ),
         ),
       ],

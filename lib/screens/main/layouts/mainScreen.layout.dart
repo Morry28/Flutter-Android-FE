@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/core/helpers/alerts.snackBar.dart';
 import 'package:helloworld/screens/chat/chat.screen.dart';
 import 'package:helloworld/screens/main/aiFunctions/functionRoller.container.dart';
 import 'package:helloworld/widgets/text/paragraph.text.dart';
 import 'package:helloworld/widgets/text/subTitle.text.dart';
-import 'package:helloworld/widgets//text/headLine.text.dart';
 import 'package:helloworld/screens/main/layouts/uploadFile.layout.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,22 +17,13 @@ class _MainScreenState extends State<MainScreen> {
   bool _useSample = false;
   String _fileName = '';
 
-  /// finalizeFormMain
-  /// @param model.apiPath
-  ///
-  /// Funkcia na zavolanie API s vybranou funkciou
-  ///
-  /// Ak nie je vybrany subor alebo je vybrany sample data, zobrazi sa chybova sprava
-  ///
-  /// Ak je vybrany subor alebo sample data, zavola sa API s danou cestou
+  // finalizeFormMain
+  // Funkcia na zavolanie API s vybranou funkciou
+  // Ak nie je vybrany subor alebo je vybrany sample data, zobrazi sa chybova sprava
+  // Ak je vybrany subor alebo sample data, zavola sa API s danou cestou
   void finalizeFormMain(Object model) {
     if (!_useSample && _fileName.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Please upload a file or use sample data'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      Alert('warning', 'Please select a file or use sample data', context);
       return;
     }
 
@@ -52,10 +43,11 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-// 🔹 Nadpis main tabu
-        HeadLine(text: 'How can i help?'),
+// Nadpis main tabu
 
-        SubTitleText(
+        SubTitleText(text: 'Start in 2 steps'),
+
+        ParagraphText(
             text:
                 'Upload data you want to analyze for fraction of cost. If you dont have data, you can use our sample data to see the magic.'),
 
@@ -74,11 +66,16 @@ class _MainScreenState extends State<MainScreen> {
         ParagraphText(
             text:
                 'every request will cost ~0.006\$ \n original processing cost of sample data is 2\$\n'),
-//zaznamename vyber funkcie a prejdeme na chat
+
+//vyber funkcie a prejdeme na chat
         FunctionRoller(
           text: 'Select desired model ( only simple data available )',
           finalizeForm: (Object model) => finalizeFormMain(model),
         ),
+
+        SizedBox(height: 20),
+
+        ParagraphText(text: 'more TBA'),
       ],
     );
   }

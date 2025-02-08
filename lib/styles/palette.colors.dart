@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorPalette extends StatelessWidget {
-  ColorPalette({super.key});
+  const ColorPalette({super.key});
 
   final Color primaryColor = const Color.fromARGB(255, 4, 24, 34);
   final Color secondaryColor = const Color.fromARGB(255, 224, 224, 224);

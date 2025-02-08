@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/styles/palette.colors.dart';
 
+// ignore: must_be_immutable
 class ReqResWindow extends StatefulWidget {
-  final List<Map<String, dynamic>> messages;
+  List<Map<String, dynamic>> messages = [
+    {'text': 'How may i be of service?', 'user': false},
+  ];
 
-  const ReqResWindow({super.key, required this.messages});
+  ReqResWindow({super.key, required this.messages});
 
   @override
   State<ReqResWindow> createState() => _ReqResWindowState();
 }
 
 class _ReqResWindowState extends State<ReqResWindow> {
-  List<Map<String, dynamic>> messages = [
-    {'text': 'How may i be of service?', 'user': false},
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,11 +27,11 @@ class _ReqResWindowState extends State<ReqResWindow> {
             Expanded(
               child: ListView.builder(
                 reverse: true, // Makes new messages appear at the bottom
-                itemCount: messages.length,
+                itemCount: widget.messages.length,
                 itemBuilder: (context, index) {
                   return ChatBubble(
-                    message: messages[index]['text'],
-                    user: messages[index]['user'],
+                    message: widget.messages[index]['text'],
+                    user: widget.messages[index]['user'],
                   );
                 },
               ),

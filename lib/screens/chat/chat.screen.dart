@@ -5,7 +5,7 @@ import 'package:helloworld/screens/chat/layouts/aiChatScreen.layout.dart';
 class ChatScreen extends StatelessWidget {
   final dynamic model;
 
-  ChatScreen({super.key, required this.model});
+  const ChatScreen({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {

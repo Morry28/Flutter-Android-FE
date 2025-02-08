@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/core/helpers/alerts.snackBar.dart';
 import 'package:helloworld/core/network/apiCall.network.dart';
 import 'package:helloworld/screens/chat/layouts/reqResWindow.layout.dart';
 import 'package:helloworld/screens/chat/layouts/writeSend.layout.dart';
@@ -17,23 +18,30 @@ class AiChatLayout extends StatefulWidget {
 
 class _AiChatLayoutState extends State<AiChatLayout> {
   final TextEditingController messageController = TextEditingController();
-  List<Map<String, dynamic>> messages = [];
+  List<Map<String, dynamic>> messages = [
+    {'text': 'How may i be of service?', 'user': false},
+  ];
 
   Future<void> sendRequest(String path, String message) async {
+    if (message.trim().isEmpty) return;
     ApiService apiService = ApiService();
+
     setState(() {
-      messages.insert(0, {'text': message, 'user': true});
+      messages = [
+        {'text': message, 'user': true},
+        ...messages
+      ];
     });
 
     try {
-      print('calling api: $path, message: $message');
       Map<String, dynamic> response =
           await apiService.postData(path, {"payload": message});
       setState(() {
-        messages.insert(0, {'text': response['message'], 'user': false});
+        messages
+            .insert(0, {'text': response['data'].toString(), 'user': false});
       });
     } catch (e) {
-      print("Error: $e");
+      Alert('error', 'Something went wrong', context);
     }
   }
 
@@ -43,7 +51,9 @@ class _AiChatLayoutState extends State<AiChatLayout> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          ReqResWindow(messages: messages),
+          Expanded(
+            child: ReqResWindow(messages: messages),
+          ),
           WriteSend(
             controller: messageController,
             onSend: () {
